@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+  background-color: white;
+  padding:2rem;
+  color:black;
+  margin-top:44px;
+}
+hr {
+  border-top: 1px solid #20c5b0;
+}
+
+.page {
+  margin: 50px;
+}

@@ -1,0 +1,24 @@
+<nav class="navbar navbar-toggleable-sm fixed-top navbar-inverse mb-4">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#main-nav" aria-controls="main-nav" aria-expanded="false"
+      aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    <div class="collapse navbar-collapse" id="main-nav">
+      <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/home" routerLinkActive="active">ANIMATION STUFF</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" routerLink="/basics" routerLinkActive="active">BASICS</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" routerLink="/advanced" routerLinkActive="active">ADVANCED</a>
+    </li>
+  </ul>
+  </div>
+</nav>
+
+<div class="page" [@routerAnimations]="prepareRouteTransition(outlet)">
+  <router-outlet #outlet="outlet"></router-outlet>
+</div>
