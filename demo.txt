@@ -1,0 +1,71 @@
+
+
+step 1: 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+step 2: 
+
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+  // ...
+} from '@angular/animations';
+
+
+step 3: 
+define the states
+
+    trigger('showThings', [
+      state('rest', style({
+        opacity: 0
+      })),
+      state('hover', style({
+        opacity: 1
+      })),
+      transition('rest => hover', animate('800ms')),
+    ])
+
+step 5: 
+bind event to your HTML
+
+  <h5 (mouseenter)="setState('hover')" (mouseleave)="setState('rest')"> Why it's important:</h5>
+  <ul [@showThings]="currentState">
+    <li>Lets users know the application is responding.</li>
+    <li>Can call user’s attention where necessary.</li>
+    <li>Lets users know the application is responding.</li>
+  </ul>
+
+
+     // REUSABLE ANIMATIONS
+    trigger('spoonAnimation', [
+      transition('void => *', [
+          useAnimation(scaleIn, {
+              params: {
+                  delay: '1000ms',
+                  from: 1,
+                  to: 0,
+                  time: '1s'
+              }
+          })
+      ])
+  ]),
+//   // trigger('spoonAnimation', [
+//   //     transition('* => *', [
+//   //         query(':enter', style({ opacity: 0 }), { optional: true }),
+//   //         query(':enter', stagger('100ms', [
+//   //           animate('1s', style({ opacity: 1 }))
+//   //       ]), { optional: true })
+//   //     ])
+//   // ]),
+//   //   trigger('spoonAnimation', [
+//   //       transition('* => *', [
+//   //           query(':enter', style({ opacity: 0 }), { optional: true }),
+//   //           query(':enter', stagger('100ms', [
+//   //             animate('1s', style({ opacity: 1 }))
+//   //         ]), { optional: true })
+//   //       ])
+//   //   ])
+//   ]

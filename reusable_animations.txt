@@ -1,0 +1,39 @@
+
+
+step 1: 
+Create a sepearte .ts file 
+
+step 2: 
+
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+  // ...
+} from '@angular/animations';
+
+
+step 3: 
+define the states
+
+    trigger('showThings', [
+      state('rest', style({
+        opacity: 0
+      })),
+      state('hover', style({
+        opacity: 1
+      })),
+      transition('rest => hover', animate('800ms')),
+    ])
+
+step 5: 
+bind event to your HTML
+
+  <h5 (mouseenter)="setState('hover')" (mouseleave)="setState('rest')"> Why it's important:</h5>
+  <ul [@showThings]="currentState">
+    <li>Lets users know the application is responding.</li>
+    <li>Can call user’s attention where necessary.</li>
+    <li>Lets users know the application is responding.</li>
+  </ul>
